@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Testing</title>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				$.get('https://api.500px.com/v1/photos.json?feature=user_favorites&user_id=1337151&_method=get&consumer_key=UwYxXKmkEzRIhK4EykqRRlItxrdij6eo0Igwz3Wc', function(data) {
+					console.log(data);
+					$.each(data.photos, function(key, photo) {
+						console.log(photo);
+						var img = '';
+						img += '<img src="';
+						img += photo.image_url;
+						img += '"/>';
+						$('.f00px').append(img);
+					});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="f00px"></div>
+	</body>
+</html>
+
